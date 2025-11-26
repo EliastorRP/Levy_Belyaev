@@ -1,0 +1,272 @@
+/* ----------------------
+   RESET SIMPLE
+----------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ----------------------
+   BASE GÉNÉRALE
+----------------------- */
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, #151521 0, #050509 45%, #000 100%);
+  color: #e5e5e5;
+  min-height: 100vh;
+}
+
+/* Pour que le contenu ne colle pas trop aux bords sur mobile */
+body {
+  padding: 0 10px 40px;
+}
+
+/* ----------------------
+   NAVBAR
+----------------------- */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: linear-gradient(to right, #050509, #101018, #050509);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  padding: 12px 18px;
+  margin: 0 -10px 30px; /* compense le padding body */
+}
+
+/* Liste principale */
+.nav-links {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  justify-content: center;
+}
+
+/* Chaque item */
+.nav-links li {
+  position: relative;
+}
+
+/* Liens */
+.nav-links a {
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 11px;
+  font-weight: 600;
+  color: #d0d0d0;
+  padding: 6px 4px;
+  display: inline-block;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+/* Barre fine sous les onglets (effet froid, chirurgical) */
+.nav-links a::after {
+  content: "";
+  display: block;
+  height: 2px;
+  margin-top: 4px;
+  width: 0;
+  background: linear-gradient(to right, #b61515, #f1d16b);
+  transition: width 0.2s ease;
+}
+
+/* Hover */
+.nav-links a:hover {
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Onglet actif (à ajouter manuellement sur la page en cours)
+   <a href="..." class="active">... */
+.nav-links a.active {
+  color: #ffffff;
+}
+
+.nav-links a.active::after {
+  width: 100%;
+}
+
+/* ----------------------
+   SOUS-MENU SUPPLÉMENTAIRE
+----------------------- */
+.dropdown > a {
+  padding-right: 14px; /* laisse respirer la flèche ▾ */
+}
+
+/* Conteneur du sous-menu */
+.submenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #050509;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8);
+  border-radius: 6px;
+  padding: 6px 0;
+  min-width: 180px;
+  display: none;
+}
+
+/* Liens dans le sous-menu */
+.submenu a {
+  display: block;
+  padding: 8px 14px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #dcdcdc;
+}
+
+.submenu a::after {
+  display: none; /* pas de barre sous eux */
+}
+
+.submenu a:hover {
+  background: rgba(255, 255, 255, 0.03);
+  color: #ffffff;
+}
+
+/* Affichage au survol */
+.dropdown:hover .submenu {
+  display: block;
+}
+
+/* ----------------------
+   BLOC DE CONTENU
+----------------------- */
+.content {
+  max-width: 900px;
+  margin: 30px auto 0;
+  background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.03), transparent 50%),
+              #07070c;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.8),
+    0 20px 40px rgba(0, 0, 0, 0.85);
+  padding: 28px 24px 26px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ligne/halo en haut du bloc (comme un “dossier” premium) */
+.content::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  border-top: 2px solid rgba(241, 209, 107, 0.65); /* or pâle, côté “dieu” */
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Petit code en haut à droite (optionnel, pour le fun)
+   Tu peux le changer page par page en ajoutant un <span class="tag">…</span> si tu veux */
+.content::after {
+  content: "LEVY // FILE";
+  position: absolute;
+  top: 10px;
+  right: 16px;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* ----------------------
+   TITRES & TEXTE
+----------------------- */
+.content h1 {
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  margin-bottom: 16px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+/* Petite ligne sous le titre */
+.content h1::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 70px;
+  height: 2px;
+  background: linear-gradient(to right, #b61515, #f1d16b);
+  box-shadow: 0 0 8px rgba(182, 21, 21, 0.6);
+}
+
+.content p {
+  line-height: 1.7;
+  font-size: 14px;
+  color: #d6d6d6;
+}
+
+/* Pour séparer bien les paragraphes si tu en ajoutes plusieurs */
+.content p + p {
+  margin-top: 10px;
+}
+
+/* ----------------------
+   LISTES, DÉTAILS, ETC.
+----------------------- */
+.content ul,
+.content ol {
+  margin-left: 18px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.content li {
+  margin-bottom: 4px;
+}
+
+/* Éventuels sous-titres */
+.content h2,
+.content h3 {
+  margin-top: 18px;
+  margin-bottom: 8px;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #f1d16b;
+}
+
+/* ----------------------
+   RESPONSIVE
+----------------------- */
+@media (max-width: 700px) {
+  .navbar {
+    padding: 10px 8px;
+  }
+
+  .nav-links {
+    gap: 10px;
+  }
+
+  .nav-links a {
+    font-size: 10px;
+    letter-spacing: 0.09em;
+  }
+
+  .content {
+    padding: 22px 16px 18px;
+  }
+
+  .content h1 {
+    font-size: 18px;
+  }
+}
