@@ -574,6 +574,127 @@ body {
   }
 }
 
+/* ----------------------
+   CARACTÈRE – LAYOUT
+----------------------- */
+
+.content.caractere {
+  overflow: visible; /* au cas où on laisse un peu dépasser l'image ou la bannière */
+}
+
+.caractere-layout {
+  display: flex;
+  gap: 24px;
+  margin-top: 12px;
+  align-items: flex-start;
+}
+
+/* Texte principal */
+.caractere-text {
+  flex: 2;
+  text-align: justify;
+}
+
+.caractere-text p + p {
+  margin-top: 8px;
+  text-align: justify;
+}
+
+/* Colonne latérale avec portrait "mental" */
+.caractere-side {
+  flex: 0 0 260px;
+  position: sticky;
+  top: 90px; /* reste visible pendant le scroll, tu peux ajuster */
+}
+
+/* Portrait de caractère */
+.caractere-portrait {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: radial-gradient(circle at top, rgba(255, 255, 255, 0.05), transparent 60%);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.9);
+  padding: 6px;
+}
+
+.caractere-portrait img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.caractere-portrait figcaption {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 6px 8px 4px;
+  color: rgba(230, 230, 230, 0.9);
+  text-align: center;
+  opacity: 0.85;
+}
+
+/* La bannière GIF glitched */
+.glitch-banner {
+  margin: 22px 0;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(182, 21, 21, 0.6);
+  background: radial-gradient(circle at center, rgba(182, 21, 21, 0.16), transparent 60%);
+  box-shadow: 0 0 20px rgba(182, 21, 21, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Légère vibration/flicker pour l'ambiance */
+.glitch-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.25),
+    rgba(0, 0, 0, 0.25) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+}
+
+.glitch-banner img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Responsive : sur petit écran, on passe en colonne */
+@media (max-width: 900px) {
+  .caractere-layout {
+    flex-direction: column;
+  }
+
+  .caractere-side {
+    position: static;
+    flex: 1 1 auto;
+    margin-top: 16px;
+      gap: 16px; /* espace propre entre les deux portraits */
+  }
+
+  .caractere-portrait {
+    max-width: 260px;
+    margin: 0 auto;
+  }
+}
+
+/* Tous les conteneurs zoomables servent de repère à la loupe */
+.zoomable {
+  position: relative;
+}
+
 
 
 
