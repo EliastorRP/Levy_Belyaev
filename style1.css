@@ -161,6 +161,12 @@ body {
   overflow: hidden;
 }
 
+/* Le bloc Description Physique peut laisser dépasser son contenu (les images) */
+.content.physique {
+  overflow: visible;
+}
+
+
 /* Ligne/halo en haut du bloc (comme un “dossier” premium) */
 .content::before {
   content: "";
@@ -312,6 +318,7 @@ body {
   padding: 12px 14px 14px;
   border: 1px solid rgba(182, 21, 21, 0.55);
   box-shadow: 0 0 15px rgba(182, 21, 21, 0.45);
+  text-align: justify;
 }
 
 .reputation-box h2 {
@@ -327,6 +334,17 @@ body {
   line-height: 1.6;
   color: #d6d6d6;
 }
+
+/* Content spécifique pour la section Signes distinctifs */
+.content.signes {
+  margin-top: 32px; /* espace au-dessus pour le séparer du reste */
+}
+
+/* Optionnel : si tu veux que le texte paraisse un peu plus “dossier médical” */
+.signes-box p + p {
+  margin-top: 10px;
+}
+
 
 /* Responsive : sur petit écran, on repasse en colonne */
 @media (max-width: 800px) {
@@ -344,6 +362,217 @@ body {
   }
 }
 
+/* ----------------------
+   DESCRIPTION PHYSIQUE
+----------------------- */
+.physique-layout {
+  display: flex;
+  gap: 24px;
+  margin-top: 12px;
+  align-items: flex-start;
+}
+
+/* Texte à gauche */
+.physique-text {
+  flex: 2;
+  text-align: justify;
+}
+
+.physique-text p + p {
+  margin-top: 8px;
+}
+
+/* Sous-titre “Signes distinctifs” */
+.physique-text h2 {
+  margin-top: 22px;
+  margin-bottom: 8px;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #f1d16b;
+}
+
+/* Colonne images à droite */
+.physique-images {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Conteneur des images, à droite du bloc physique */
+.physique-images-side {
+  position: absolute;
+  top: 40px;          /* distance depuis le haut du bloc */
+  right: -260px;      /* combien il dépasse sur la droite */
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+
+/* Chaque portrait */
+.physique-images .portrait {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: radial-gradient(circle at top, rgba(255, 255, 255, 0.05), transparent 55%);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8);
+}
+
+/* Image entièrement visible, jamais rognée */
+.physique-images .portrait img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  display: block;
+  object-fit: contain;
+  background-color: #00000033; /* léger fond pour éviter le vide si format très portrait */
+  padding: 6px;
+  border-radius: 6px;
+}
+
+
+
+/* Légende sous l'image */
+.physique-images .portrait figcaption {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 6px 10px 7px;
+  background: rgba(0, 0, 0, 0.6);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  color: rgba(230, 230, 230, 0.9);
+}
+
+/* ----------------------
+   IMAGES LATÉRALES
+----------------------- */
+
+/* WRAPPER TEXTE + IMAGES */
+.physique-wrapper {
+  max-width: 1200px;
+  margin: 30px auto 0;
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+/* On neutralise le margin auto du .content quand il est dans le wrapper */
+.physique-wrapper .content.physique {
+  margin: 0;
+}
+
+/* Le layout interne n'a plus besoin de flex si tu veux juste du texte */
+.physique-layout {
+  margin-top: 12px;
+}
+
+/* Colonne images, à droite du content */
+.physique-images-side {
+  position: absolute;
+  top: 0;               /* ALIGNÉ AU HAUT DU BLOC  */
+  right: -260px;        /* distance sur la droite */
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+
+/* Style des portraits (reprend ton style existant) */
+.physique-images-side .portrait {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8);
+  padding: 6px;
+}
+
+/* Les images ne sont PAS rognées */
+.physique-images-side .portrait img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Légende */
+.physique-images-side .portrait figcaption {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 6px 10px 7px;
+  color: rgba(230, 230, 230, 0.9);
+  text-align: center;
+}
+
+/* Animation de zoom au survol */
+.physique-images-side .portrait {
+  position: relative;
+  overflow: hidden; /* important pour éviter que le zoom déborde */
+}
+
+.physique-images-side .portrait img {
+  transition: transform 0.35s ease;
+}
+
+.physique-images-side .portrait:hover img {
+  transform: scale(1.08); /* zoom léger, tu peux monter jusqu'à 1.2 */
+}
+
+
+/* Responsive — images passent en dessous sur mobile */
+@media (max-width: 1200px) {
+  .physique-images-side {
+    position: static;
+    width: 100%;
+    margin-top: 16px;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .physique-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .content.physique {
+    margin-bottom: 20px;
+  }
+
+  .physique-images-side .portrait {
+    flex: 1 1 150px;
+    max-width: 200px;
+  }
+}
+
+
+
+
+/* Responsive : en colonne sur petit écran */
+@media (max-width: 800px) {
+  .physique-layout {
+    flex-direction: column;
+  }
+
+  .physique-images {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .physique-images .portrait {
+    flex: 1 1 160px;
+  }
+
+  .physique-images .portrait img {
+    max-height: 260px;
+  }
+}
 
 
 
@@ -379,4 +608,25 @@ body {
   .content h1 {
     font-size: 18px;
   }
+}
+
+/* ---------- ZOOM TYPE AMAZON ---------- */
+
+.zoom-lens {
+  position: absolute;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  pointer-events: none;
+  display: none;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  z-index: 999;
+}
+
+.zoom-lens img {
+  position: absolute;
+  user-select: none;
+  -webkit-user-drag: none;
 }
