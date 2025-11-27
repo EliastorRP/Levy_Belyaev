@@ -809,7 +809,256 @@ body {
   }
 }
 
+/* ----------- ACCORDION PERSONAS ----------- */
 
+.persona-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.persona-item {
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.03);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+
+.persona-toggle {
+  width: 100%;
+  text-align: left;
+  padding: 12px 14px;
+  background: rgba(255,255,255,0.05);
+  color: #f1d16b;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.persona-toggle:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+.persona-content {
+  padding: 14px 16px;
+  display: none;
+}
+
+.persona-item.open .persona-content {
+  display: block;
+}
+
+.persona-content ul {
+  margin-left: 18px;
+  margin-bottom: 12px;
+}
+
+.persona-content .quote {
+  font-style: italic;
+  opacity: 0.85;
+  margin-bottom: 10px;
+  letter-spacing: 0.08em;
+}
+
+
+
+
+/* ───────── Histoire – Layout général ───────── */
+
+.content.histoire {
+  overflow: visible;
+}
+
+.history-split {
+  display: flex;
+  gap: 24px;
+  margin-top: 10px;
+  align-items: flex-start;
+}
+
+.history-text {
+  flex: 2;
+}
+
+.history-text h2 {
+  margin-top: 4px;
+  margin-bottom: 10px;
+}
+
+.history-text h3 {
+  margin-top: 14px;
+  margin-bottom: 6px;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #f1d16b;
+}
+
+/* Colonne photos à droite */
+.history-photos {
+  flex: 0 0 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Carte photo principale */
+.history-photo-card {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.16);
+  background: radial-gradient(circle at top, rgba(255,255,255,0.06), transparent 60%);
+  box-shadow: 0 16px 30px rgba(0,0,0,0.9);
+  padding: 6px;
+}
+
+.history-photo-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Stack vertical pour les portraits parents */
+.history-photo-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.history-photo-stack .stack-img {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: #050509;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.9);
+  padding: 4px 4px 14px;
+}
+
+.history-photo-stack .stack-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.history-photo-stack .stack-img figcaption {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: center;
+  color: rgba(230,230,230,0.9);
+  margin-top: 4px;
+}
+
+
+/* Bloc histoire long */
+.history-longtext {
+  margin-top: 18px;
+}
+
+/* Bannière grande image */
+.history-banner {
+  border-radius: 12px;
+  overflow: hidden;
+  margin-top: 10px;
+  border: 1px solid rgba(255,255,255,0.14);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.9);
+}
+
+.history-banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.history-banner figcaption {
+  font-size: 11px;
+  padding: 6px 10px 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  background: rgba(0,0,0,0.7);
+  color: rgba(230,230,230,0.9);
+}
+
+/* Photos inline gauche / droite */
+.history-inline-photo {
+  max-width: 260px;
+  margin: 14px 0;
+}
+
+.history-inline-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.15);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.9);
+}
+
+.history-inline-photo figcaption {
+  font-size: 11px;
+  margin-top: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(230,230,230,0.9);
+}
+
+/* Position droite / gauche */
+.history-inline-photo.right {
+  float: right;
+  margin-left: 18px;
+}
+
+.history-inline-photo.left {
+  float: left;
+  margin-right: 18px;
+}
+
+/* Style polaroid */
+.history-inline-photo.polaroid {
+  background: #050509;
+  padding: 6px 6px 18px;
+  border-radius: 10px;
+}
+
+/* Bloc Genesis */
+.histoire-genesis p {
+  font-size: 13px;
+  color: #bfbfbf;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .history-split {
+    flex-direction: column;
+  }
+
+  .history-photos {
+    flex: 1 1 auto;
+  }
+
+  .history-photo-stack {
+    height: 200px;
+  }
+
+  .history-sibling-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .history-inline-photo.right,
+  .history-inline-photo.left {
+    float: none;
+    margin: 14px auto;
+  }
+
+  .history-inline-photo {
+    max-width: 100%;
+  }
+}
 
 
 

@@ -39,3 +39,10 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+
+document.querySelectorAll(".persona-toggle").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const item = btn.parentElement;
+    item.classList.toggle("open");
+  });
+});
