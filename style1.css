@@ -872,6 +872,7 @@ body {
 
 .content.histoire {
   overflow: visible;
+  text-align: justify;
 }
 
 .history-split {
@@ -883,6 +884,7 @@ body {
 
 .history-text {
   flex: 2;
+  text-align: justify;
 }
 
 .history-text h2 {
@@ -958,6 +960,7 @@ body {
 /* Bloc histoire long */
 .history-longtext {
   margin-top: 18px;
+  text-align: justify;
 }
 
 /* Bannière grande image */
@@ -1030,6 +1033,56 @@ body {
   font-size: 13px;
   color: #bfbfbf;
 }
+
+/* Bloc scène – encadré dans l'histoire */
+.history-scene {
+  margin-top: 12px;
+  padding: 14px 18px 16px;
+  border-radius: 12px;
+  background: radial-gradient(circle at top left, rgba(255,255,255,0.02), transparent 55%);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.9);
+}
+
+/* Paragraphes de la scène */
+.history-scene p {
+  margin-top: 8px;
+  text-align: justify;
+}
+
+/* Lignes de dialogue */
+.history-scene .dialogue {
+  position: relative;
+  padding-left: 110px;         /* laisse de la place pour le "Lev >" */
+  font-style: italic;
+  color: #f5f5f5;
+}
+
+/* Badge "Lev >", "Levy >" */
+.history-scene .speaker {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(241, 209, 107, 0.7);
+  color: #f1d16b;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+/* Petit effet de survol sur la réplique */
+.history-scene .dialogue:hover {
+  background: rgba(255,255,255,0.02);
+}
+
+/* Optionnel : légère ligne à gauche du bloc, style "dossier" */
+.history-scene {
+  border-left: 2px solid rgba(182, 21, 21, 0.7);
+}
+
 
 /* Responsive */
 @media (max-width: 900px) {
