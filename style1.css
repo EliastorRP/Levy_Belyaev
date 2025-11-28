@@ -19,7 +19,6 @@ body {
   min-height: 100vh;
 }
 
-/* Pour que le contenu ne colle pas trop aux bords sur mobile */
 body {
   padding: 0 10px 40px;
 }
@@ -35,10 +34,9 @@ body {
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
   padding: 12px 18px;
-  margin: 0 -10px 30px; /* compense le padding body */
+  margin: 0 -10px 30px;
 }
 
-/* Liste principale */
 .nav-links {
   list-style: none;
   display: flex;
@@ -47,12 +45,10 @@ body {
   justify-content: center;
 }
 
-/* Chaque item */
 .nav-links li {
   position: relative;
 }
 
-/* Liens */
 .nav-links a {
   text-decoration: none;
   text-transform: uppercase;
@@ -67,7 +63,6 @@ body {
     transform 0.2s ease;
 }
 
-/* Barre fine sous les onglets (effet froid, chirurgical) */
 .nav-links a::after {
   content: "";
   display: block;
@@ -78,7 +73,6 @@ body {
   transition: width 0.2s ease;
 }
 
-/* Hover */
 .nav-links a:hover {
   color: #ffffff;
   transform: translateY(-1px);
@@ -88,8 +82,6 @@ body {
   width: 100%;
 }
 
-/* Onglet actif (à ajouter manuellement sur la page en cours)
-   <a href="..." class="active">... */
 .nav-links a.active {
   color: #ffffff;
 }
@@ -102,10 +94,9 @@ body {
    SOUS-MENU SUPPLÉMENTAIRE
 ----------------------- */
 .dropdown > a {
-  padding-right: 14px; /* laisse respirer la flèche ▾ */
+  padding-right: 14px;
 }
 
-/* Conteneur du sous-menu */
 .submenu {
   position: absolute;
   top: 100%;
@@ -119,7 +110,6 @@ body {
   display: none;
 }
 
-/* Liens dans le sous-menu */
 .submenu a {
   display: block;
   padding: 8px 14px;
@@ -130,7 +120,7 @@ body {
 }
 
 .submenu a::after {
-  display: none; /* pas de barre sous eux */
+  display: none;
 }
 
 .submenu a:hover {
@@ -138,7 +128,6 @@ body {
   color: #ffffff;
 }
 
-/* Affichage au survol */
 .dropdown:hover .submenu {
   display: block;
 }
@@ -161,22 +150,20 @@ body {
   overflow: hidden;
 }
 
-/* Le bloc Description Physique peut laisser dépasser son contenu (les images) */
 .content.physique {
   overflow: visible;
 }
 
-
-/* Ligne/halo en haut du bloc (comme un “dossier” premium) */
 .content::before {
   content: "";
   position: absolute;
   inset: 0;
   border-radius: 14px;
-  border-top: 2px solid rgba(255, 255, 255, 0.65); /* or pâle, côté “dieu” */
+  border-top: 2px solid rgba(255, 255, 255, 0.65);
   opacity: 0.5;
   pointer-events: none;
 }
+
 /* ----------------------
    TITRES & TEXTE
 ----------------------- */
@@ -189,7 +176,6 @@ body {
   padding-bottom: 10px;
 }
 
-/* Petite ligne sous le titre */
 .content h1::after {
   content: "";
   position: absolute;
@@ -207,7 +193,6 @@ body {
   color: #d6d6d6;
 }
 
-/* Pour séparer bien les paragraphes si tu en ajoutes plusieurs */
 .content p + p {
   margin-top: 10px;
 }
@@ -226,7 +211,6 @@ body {
   margin-bottom: 4px;
 }
 
-/* Éventuels sous-titres */
 .content h2,
 .content h3 {
   margin-top: 18px;
@@ -237,12 +221,6 @@ body {
   color: #f1d16b;
 }
 
-
-
-
-
-
-
 /* ----------------------
    IDENTITÉ – LAYOUT
 ----------------------- */
@@ -250,10 +228,9 @@ body {
   display: flex;
   gap: 24px;
   margin-top: 12px;
-  align-items: stretch; /* la colonne image prend la même hauteur que la colonne texte */
+  align-items: stretch;
 }
 
-/* Colonne droite (infos) */
 .identity-infos {
   flex: 2;
   display: flex;
@@ -261,7 +238,6 @@ body {
   gap: 6px;
 }
 
-/* Chaque ligne d'info */
 .identity-row {
   display: grid;
   grid-template-columns: 150px 1fr;
@@ -286,9 +262,8 @@ body {
   color: #e2e2e2;
 }
 
-/* Colonne gauche (image) */
 .identity-photo {
-  flex: 0 0 230px;           /* largeur fixe, tu peux ajuster */
+  flex: 0 0 230px;
   border-radius: 10px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.12);
@@ -298,15 +273,13 @@ body {
   justify-content: center;
 }
 
-/* L'image prend toute la hauteur du bloc, donc la hauteur totale de l'identité */
 .identity-photo img {
   width: 100%;
   height: 100%;
-  object-fit: cover;   /* recadre proprement si les proportions ne sont pas parfaites */
+  object-fit: cover;
   display: block;
 }
 
-/* Bloc réputation (tu peux garder ce qu'on avait fait) */
 .identity-side {
   display: flex;
   flex-direction: column;
@@ -335,18 +308,14 @@ body {
   color: #d6d6d6;
 }
 
-/* Content spécifique pour la section Signes distinctifs */
 .content.signes {
-  margin-top: 32px; /* espace au-dessus pour le séparer du reste */
+  margin-top: 32px;
 }
 
-/* Optionnel : si tu veux que le texte paraisse un peu plus “dossier médical” */
 .signes-box p + p {
   margin-top: 10px;
 }
 
-
-/* Responsive : sur petit écran, on repasse en colonne */
 @media (max-width: 800px) {
   .identity-layout {
     flex-direction: column;
@@ -358,7 +327,7 @@ body {
 
   .identity-photo {
     flex: 0 0 auto;
-    height: 260px; /* hauteur par défaut sur mobile, tu peux adapter */
+    height: 260px;
   }
 }
 
@@ -372,7 +341,6 @@ body {
   align-items: flex-start;
 }
 
-/* Texte à gauche */
 .physique-text {
   flex: 2;
   text-align: justify;
@@ -382,7 +350,6 @@ body {
   margin-top: 8px;
 }
 
-/* Sous-titre “Signes distinctifs” */
 .physique-text h2 {
   margin-top: 22px;
   margin-bottom: 8px;
@@ -392,7 +359,6 @@ body {
   color: #f1d16b;
 }
 
-/* Colonne images à droite */
 .physique-images {
   flex: 1;
   display: flex;
@@ -400,19 +366,16 @@ body {
   gap: 14px;
 }
 
-/* Conteneur des images, à droite du bloc physique */
 .physique-images-side {
   position: absolute;
-  top: 40px;          /* distance depuis le haut du bloc */
-  right: -260px;      /* combien il dépasse sur la droite */
+  top: 40px;
+  right: -260px;
   width: 240px;
   display: flex;
   flex-direction: column;
   gap: 14px;
 }
 
-
-/* Chaque portrait */
 .physique-images .portrait {
   border-radius: 10px;
   overflow: hidden;
@@ -421,21 +384,17 @@ body {
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8);
 }
 
-/* Image entièrement visible, jamais rognée */
 .physique-images .portrait img {
   width: 100%;
   height: auto;
   max-width: 100%;
   display: block;
   object-fit: contain;
-  background-color: #00000033; /* léger fond pour éviter le vide si format très portrait */
+  background-color: #00000033;
   padding: 6px;
   border-radius: 6px;
 }
 
-
-
-/* Légende sous l'image */
 .physique-images .portrait figcaption {
   font-size: 11px;
   letter-spacing: 0.12em;
@@ -449,8 +408,6 @@ body {
 /* ----------------------
    IMAGES LATÉRALES
 ----------------------- */
-
-/* WRAPPER TEXTE + IMAGES */
 .physique-wrapper {
   max-width: 1200px;
   margin: 30px auto 0;
@@ -459,29 +416,24 @@ body {
   align-items: flex-start;
 }
 
-/* On neutralise le margin auto du .content quand il est dans le wrapper */
 .physique-wrapper .content.physique {
   margin: 0;
 }
 
-/* Le layout interne n'a plus besoin de flex si tu veux juste du texte */
 .physique-layout {
   margin-top: 12px;
 }
 
-/* Colonne images, à droite du content */
 .physique-images-side {
   position: absolute;
-  top: 0;               /* ALIGNÉ AU HAUT DU BLOC  */
-  right: -260px;        /* distance sur la droite */
+  top: 0;
+  right: -260px;
   width: 240px;
   display: flex;
   flex-direction: column;
   gap: 14px;
 }
 
-
-/* Style des portraits (reprend ton style existant) */
 .physique-images-side .portrait {
   border-radius: 10px;
   overflow: hidden;
@@ -491,7 +443,6 @@ body {
   padding: 6px;
 }
 
-/* Les images ne sont PAS rognées */
 .physique-images-side .portrait img {
   width: 100%;
   height: auto;
@@ -499,7 +450,6 @@ body {
   display: block;
 }
 
-/* Légende */
 .physique-images-side .portrait figcaption {
   font-size: 11px;
   letter-spacing: 0.12em;
@@ -509,10 +459,9 @@ body {
   text-align: center;
 }
 
-/* Animation de zoom au survol */
 .physique-images-side .portrait {
   position: relative;
-  overflow: hidden; /* important pour éviter que le zoom déborde */
+  overflow: hidden;
 }
 
 .physique-images-side .portrait img {
@@ -520,11 +469,9 @@ body {
 }
 
 .physique-images-side .portrait:hover img {
-  transform: scale(1.08); /* zoom léger, tu peux monter jusqu'à 1.2 */
+  transform: scale(1.08);
 }
 
-
-/* Responsive — images passent en dessous sur mobile */
 @media (max-width: 1200px) {
   .physique-images-side {
     position: static;
@@ -550,10 +497,6 @@ body {
   }
 }
 
-
-
-
-/* Responsive : en colonne sur petit écran */
 @media (max-width: 800px) {
   .physique-layout {
     flex-direction: column;
@@ -577,9 +520,8 @@ body {
 /* ----------------------
    CARACTÈRE – LAYOUT
 ----------------------- */
-
 .content.caractere {
-  overflow: visible; /* au cas où on laisse un peu dépasser l'image ou la bannière */
+  overflow: visible;
 }
 
 .caractere-layout {
@@ -589,7 +531,6 @@ body {
   align-items: flex-start;
 }
 
-/* Texte principal */
 .caractere-text {
   flex: 2;
   text-align: justify;
@@ -600,14 +541,12 @@ body {
   text-align: justify;
 }
 
-/* Colonne latérale avec portrait "mental" */
 .caractere-side {
   flex: 0 0 260px;
   position: sticky;
-  top: 90px; /* reste visible pendant le scroll, tu peux ajuster */
+  top: 90px;
 }
 
-/* Portrait de caractère */
 .caractere-portrait {
   border-radius: 12px;
   overflow: hidden;
@@ -634,7 +573,6 @@ body {
   opacity: 0.85;
 }
 
-/* La bannière GIF glitched */
 .glitch-banner {
   margin: 22px 0;
   padding: 8px 10px;
@@ -649,7 +587,6 @@ body {
   position: relative;
 }
 
-/* Légère vibration/flicker pour l'ambiance */
 .glitch-banner::before {
   content: "";
   position: absolute;
@@ -671,7 +608,6 @@ body {
   display: block;
 }
 
-/* Responsive : sur petit écran, on passe en colonne */
 @media (max-width: 900px) {
   .caractere-layout {
     flex-direction: column;
@@ -681,7 +617,7 @@ body {
     position: static;
     flex: 1 1 auto;
     margin-top: 16px;
-      gap: 16px; /* espace propre entre les deux portraits */
+    gap: 16px;
   }
 
   .caractere-portrait {
@@ -690,7 +626,6 @@ body {
   }
 }
 
-/* Tous les conteneurs zoomables servent de repère à la loupe */
 .zoomable {
   position: relative;
 }
@@ -698,12 +633,10 @@ body {
 /* ----------------------
    CARACTÈRE – BLOCS AIME / N'AIME PAS / PHOBIES
 ----------------------- */
-
 .content.carac-sections {
   margin-top: 30px;
 }
 
-/* Deux colonnes : Aime / N'aime pas */
 .carac-columns {
   display: flex;
   gap: 20px;
@@ -720,7 +653,6 @@ body {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
 }
 
-/* Titres de blocs */
 .carac-block h2 {
   font-size: 14px;
   text-transform: uppercase;
@@ -729,7 +661,6 @@ body {
   color: #f1d16b;
 }
 
-/* Titres internes (chaque élément : L'art, La viande rouge, etc.) */
 .carac-item h3 {
   font-size: 13px;
   text-transform: uppercase;
@@ -738,7 +669,6 @@ body {
   color: #ffffff;
 }
 
-/* Texte */
 .carac-item p {
   font-size: 13px;
   line-height: 1.7;
@@ -752,7 +682,6 @@ body {
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* Accent couleurs différents */
 .carac-like {
   border-color: rgba(241, 209, 107, 0.7);
   box-shadow: 0 0 18px rgba(241, 209, 107, 0.18);
@@ -763,7 +692,6 @@ body {
   box-shadow: 0 0 18px rgba(182, 21, 21, 0.28);
 }
 
-/* Phobies en bloc large */
 .carac-phobies {
   border-color: rgba(141, 47, 214, 0.7);
   box-shadow: 0 0 22px rgba(141, 47, 214, 0.3);
@@ -788,7 +716,6 @@ body {
   padding-bottom: 8px;
 }
 
-/* petite barre or/rouge comme les autres titres */
 .carac-title::after {
   content: "";
   position: absolute;
@@ -800,9 +727,6 @@ body {
   box-shadow: 0 0 8px rgba(182, 21, 21, 0.6);
 }
 
-
-
-/* Responsive : colonnes empilées */
 @media (max-width: 900px) {
   .carac-columns {
     flex-direction: column;
@@ -810,7 +734,6 @@ body {
 }
 
 /* ----------- ACCORDION PERSONAS ----------- */
-
 .persona-accordion {
   display: flex;
   flex-direction: column;
@@ -865,11 +788,7 @@ body {
   letter-spacing: 0.08em;
 }
 
-
-
-
 /* ───────── Histoire – Layout général ───────── */
-
 .content.histoire {
   overflow: visible;
   text-align: justify;
@@ -901,7 +820,6 @@ body {
   color: #f1d16b;
 }
 
-/* Colonne photos à droite */
 .history-photos {
   flex: 0 0 260px;
   display: flex;
@@ -909,7 +827,6 @@ body {
   gap: 14px;
 }
 
-/* Carte photo principale */
 .history-photo-card {
   border-radius: 12px;
   overflow: hidden;
@@ -925,7 +842,6 @@ body {
   display: block;
 }
 
-/* Stack vertical pour les portraits parents */
 .history-photo-stack {
   display: flex;
   flex-direction: column;
@@ -956,14 +872,11 @@ body {
   margin-top: 4px;
 }
 
-
-/* Bloc histoire long */
 .history-longtext {
   margin-top: 18px;
   text-align: justify;
 }
 
-/* Bannière grande image */
 .history-banner {
   border-radius: 12px;
   overflow: hidden;
@@ -987,7 +900,6 @@ body {
   color: rgba(230,230,230,0.9);
 }
 
-/* Photos inline gauche / droite */
 .history-inline-photo {
   max-width: 260px;
   margin: 14px 0;
@@ -1010,7 +922,6 @@ body {
   color: rgba(230,230,230,0.9);
 }
 
-/* Position droite / gauche */
 .history-inline-photo.right {
   float: right;
   margin-left: 18px;
@@ -1021,14 +932,12 @@ body {
   margin-right: 18px;
 }
 
-/* Style polaroid */
 .history-inline-photo.polaroid {
   background: #050509;
   padding: 6px 6px 18px;
   border-radius: 10px;
 }
 
-/* Bloc Genesis */
 .histoire-genesis p {
   font-size: 13px;
   color: #bfbfbf;
@@ -1042,23 +951,21 @@ body {
   background: radial-gradient(circle at top left, rgba(255,255,255,0.02), transparent 55%);
   border: 1px solid rgba(255,255,255,0.08);
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.9);
+  border-left: 2px solid rgba(182, 21, 21, 0.7);
 }
 
-/* Paragraphes de la scène */
 .history-scene p {
   margin-top: 8px;
   text-align: justify;
 }
 
-/* Lignes de dialogue */
 .history-scene .dialogue {
   position: relative;
-  padding-left: 110px;         /* laisse de la place pour le "Lev >" */
+  padding-left: 110px;
   font-style: italic;
   color: #f5f5f5;
 }
 
-/* Badge "Lev >", "Levy >" */
 .history-scene .speaker {
   position: absolute;
   left: 0;
@@ -1073,18 +980,28 @@ body {
   background: rgba(0, 0, 0, 0.7);
 }
 
-/* Petit effet de survol sur la réplique */
+.history-scene .speaker-lev {
+  border-color: rgba(241, 209, 107, 0.9);
+  color: #f1d16b;
+  background: rgba(255, 215, 0, 0.12);
+}
+
+.history-scene .speaker-levy {
+  border-color: rgba(182, 21, 21, 0.85);
+  color: #ff4a4a;
+  background: rgba(182, 21, 21, 0.18);
+}
+
 .history-scene .dialogue:hover {
   background: rgba(255,255,255,0.02);
 }
 
-/* Optionnel : légère ligne à gauche du bloc, style "dossier" */
-.history-scene {
-  border-left: 2px solid rgba(182, 21, 21, 0.7);
+.history-longtext::after {
+  content: "";
+  display: block;
+  clear: both;
 }
 
-
-/* Responsive */
 @media (max-width: 900px) {
   .history-split {
     flex-direction: column;
@@ -1113,19 +1030,8 @@ body {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
 /* ----------------------
-   RESPONSIVE
+   RESPONSIVE GLOBAL
 ----------------------- */
 @media (max-width: 700px) {
   .navbar {
@@ -1151,7 +1057,6 @@ body {
 }
 
 /* ---------- ZOOM TYPE AMAZON ---------- */
-
 .zoom-lens {
   position: absolute;
   border: 2px solid rgba(255, 255, 255, 0.4);
@@ -1169,4 +1074,165 @@ body {
   position: absolute;
   user-select: none;
   -webkit-user-drag: none;
+}
+
+/* === NORMALISATION DES ESPACES AUTOUR DES IMAGES === */
+.history-inline-photo {
+  margin: 20px 0;
+}
+
+.history-inline-photo.right {
+  margin: 30px 0 30px 30px;
+}
+
+.history-inline-photo.left {
+  margin: 30px 30px 30px 0;
+}
+
+.history-banner {
+  margin: 20px 0;
+}
+
+.history-longtext p {
+  margin: 16px 0;
+  line-height: 1.7;
+}
+
+.content.histoire {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+/* ───────── INTERROGATOIRE – STYLE CLINIQUE ───────── */
+.content.interrogatoire {
+  overflow: visible;
+}
+
+.interro-header {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.interro-tag {
+  display: inline-block;
+  padding: 4px 10px;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  border: 1px solid rgba(241, 209, 107, 0.8);
+  color: #f1d16b;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.interro-meta {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.72;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.interro-log {
+  margin-top: 10px;
+  padding: 14px 16px 16px;
+  border-radius: 10px;
+  background: radial-gradient(circle at top left, rgba(255,255,255,0.02), transparent 55%);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.9);
+}
+
+.interro-label {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-top: 10px;
+  margin-bottom: 2px;
+  opacity: 0.8;
+}
+
+.interro-label.doc {
+  color: #f1d16b;
+}
+
+.interro-label.levy {
+  color: #ff4a4a;
+}
+
+.interro-text {
+  font-size: 13px;
+  line-height: 1.7;
+  text-align: justify;
+}
+
+.interro-quote {
+  font-family: "SF Mono", ui-monospace, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.65);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.interro-quote.doc {
+  border-color: rgba(241, 209, 107, 0.6);
+  box-shadow: 0 0 16px rgba(241, 209, 107, 0.18);
+}
+
+.interro-quote.levy {
+  border-color: rgba(182, 21, 21, 0.8);
+  box-shadow: 0 0 18px rgba(182, 21, 21, 0.28);
+}
+
+.interro-note {
+  font-size: 12px;
+  line-height: 1.7;
+  font-style: italic;
+  color: #bfbfbf;
+  margin-top: 4px;
+  text-align: justify;
+}
+
+.interro-log p + p {
+  margin-top: 4px;
+}
+
+@media (max-width: 700px) {
+  .interro-log {
+    padding: 12px 10px 14px;
+  }
+
+  .interro-quote {
+    padding: 6px 8px;
+  }
+}
+
+/* ────────────────────────────── */
+/*   BLOCS D'INFORMATION GENESIS  */
+/* ────────────────────────────── */
+.interro-block {
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin: 16px 0;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.75);
+}
+
+.interro-block h3 {
+  margin-bottom: 8px;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #f1d16b;
+}
+
+.interro-block p {
+  font-size: 13px;
+  color: #e5e5e5;
+  letter-spacing: 0.05em;
+  text-align: left;
 }
