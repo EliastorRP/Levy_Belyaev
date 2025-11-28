@@ -877,6 +877,117 @@ body {
   text-align: justify;
 }
 
+/* Wrapper avec la même largeur que les autres blocs (.content) */
+.history-wrapper {
+  max-width: 900px;
+  margin: 30px auto 0;
+  position: relative;
+}
+
+/* Le bloc histoire se comporte comme d’habitude */
+.history-wrapper .content.histoire {
+  margin: 0;
+}
+
+
+.history-images-side {
+  position: absolute;
+  top: 19%;
+  left: 100%;        /* se place juste après le bloc .content */
+  margin-left: 24px; /* petit espace entre la carte et les images */
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+
+/* Style des cartes images (comme en physique) */
+.history-side-photo {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8);
+  padding: 6px;
+}
+
+.history-side-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.history-side-photo figcaption {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 6px 10px 7px;
+  color: rgba(230, 230, 230, 0.9);
+  text-align: center;
+}
+
+/* Petit zoom au survol, comme pour le physique */
+.history-side-photo {
+  position: relative;
+  overflow: hidden;
+}
+
+.history-side-photo img {
+  transition: transform 0.35s ease;
+}
+
+.history-side-photo:hover img {
+  transform: scale(1.08);
+}
+
+/* Responsive : sur petit écran, on remet les images en dessous */
+@media (max-width: 1200px) {
+  .history-wrapper {
+    max-width: 900px;
+  }
+
+  .history-images-side {
+    position: static;
+    width: 100%;
+    margin-top: 16px;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .history-side-photo {
+    flex: 1 1 150px;
+    max-width: 200px;
+  }
+}
+
+/* Style des images de la colonne droite */
+.history-side-photo {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.16);
+  background: radial-gradient(circle at top, rgba(255,255,255,0.06), transparent 60%);
+  box-shadow: 0 16px 30px rgba(0,0,0,0.9);
+  padding: 6px;
+}
+
+.history-side-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.history-side-photo figcaption {
+  font-size: 11px;
+  margin-top: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(230,230,230,0.9);
+  text-align: center;
+}
+
 .history-banner {
   border-radius: 12px;
   overflow: hidden;
@@ -1029,6 +1140,8 @@ body {
     max-width: 100%;
   }
 }
+
+
 
 /* ----------------------
    RESPONSIVE GLOBAL
