@@ -1671,3 +1671,221 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* ----------------------
+   POUVOIRS – LAYOUT
+----------------------- */
+.content.pouvoirs {
+  overflow: visible;
+}
+
+.power-layout {
+  display: flex;
+  gap: 24px;
+  margin-top: 12px;
+  align-items: flex-start;
+}
+
+/* Colonne gauche : lecteur */
+.power-audio {
+  flex: 0 0 320px;        /* largeur fixe du bloc audio */
+  position: sticky;
+  top: 90px;              /* colle au scroll (ajuste si besoin selon ta navbar) */
+}
+
+.audio-card {
+  background: rgba(0, 0, 0, 0.45);
+  border-radius: 12px;
+  padding: 12px 12px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.9);
+}
+
+/* petit label au-dessus du lecteur */
+.audio-label {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #f1d16b;
+  margin-bottom: 8px;
+}
+
+/* iframe Youtube responsive dans la carte */
+.audio-card iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: block;
+  border-radius: 8px;
+  border: none;
+}
+
+/* Colonne droite : ton texte de pouvoirs */
+.power-text {
+  flex: 2;
+  text-align: justify;
+}
+
+.power-text p + p {
+  margin-top: 8px;
+}
+
+/* Responsive : sur petit écran, on empile tout */
+@media (max-width: 900px) {
+  .power-layout {
+    flex-direction: column;
+  }
+
+  .power-audio {
+    position: static;
+    flex: 1 1 auto;
+  }
+}
+
+/* ===========================
+   POUVOIRS – WRAPPER GLOBAL
+   =========================== */
+
+.pouvoirs-wrapper {
+  max-width: 1200px;
+  margin: 30px auto 0;   /* centré comme les autres pages */
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+/* Le bloc .content reste une carte, mais sans margin auto interne */
+.pouvoirs-wrapper .content.pouvoir {
+  margin: 0;
+}
+
+/* Colonne gauche : lecteur sticky */
+.power-audio {
+  flex: 0 0 320px;
+  position: sticky;
+  top: 90px;           /* ajuste si ça passe trop haut/bas sous la navbar */
+}
+
+/* On garde ton style de carte audio */
+.audio-card {
+  background: rgba(0, 0, 0, 0.45);
+  border-radius: 12px;
+  padding: 12px 12px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.9);
+}
+
+.audio-label {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #f1d16b;
+  margin-bottom: 8px;
+}
+
+.audio-card iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: block;
+  border-radius: 8px;
+  border: none;
+}
+
+/* Colonne droite : texte pouvoirs */
+.pouvoir-intro {
+  text-align: justify;
+}
+
+.pouvoir-intro p + p {
+  margin-top: 8px;
+}
+
+/* Responsive : on empile tout sur mobile */
+@media (max-width: 900px) {
+  .pouvoirs-wrapper {
+    flex-direction: column;
+  }
+
+  .power-audio {
+    position: static;
+    flex: 1 1 auto;
+    width: 100%;
+  }
+}
+
+/* ======== POUVOIRS – LECTEUR FLOTTANT GLOBALEMENT ======== */
+
+.power-audio-outside {
+  position: absolute;
+  top: 200px;          /* ajuste pour descendre/monter */
+  left: calc(50% - 600px); /* place le lecteur à gauche du bloc CENTRÉ */
+  width: 260px;        /* même largeur que les images latérales */
+  z-index: 5;
+}
+
+.power-audio-outside .audio-card {
+  background: rgba(0, 0, 0, 0.45);
+  border-radius: 12px;
+  padding: 12px 12px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.9);
+}
+
+.power-audio-outside iframe {
+  width: 100%;
+  aspect-ratio: 16/9;
+  display: block;
+  border-radius: 8px;
+  border: none;
+}
+
+/* Effet sticky même en étant "en dehors" */
+.power-audio-outside {
+  position: sticky;
+  top: 100px; /* valeur à régler pour ta navbar */
+}
+
+/* Mobile : réintègre le lecteur dans le flux pour éviter les bugs */
+@media (max-width: 1000px) {
+  .power-audio-outside {
+    position: static;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+}
+
+/* === LECTEUR FIXE, EN DEHORS DES BLOCS === */
+
+.power-audio-fixed {
+  position: fixed;
+  top: 110px;      /* ajuste si tu veux plus haut / plus bas */
+  left: 20px;      /* distance depuis le bord gauche de l'écran */
+  width: 400px;    /* largeur du lecteur */
+  z-index: 20;
+}
+
+
+/* on réutilise ta carte audio existante, pas besoin de la dupliquer */
+.power-audio-fixed .audio-card {
+  background: rgba(0, 0, 0, 0.45);
+  border-radius: 12px;
+  padding: 12px 12px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.9);
+}
+
+.power-audio-fixed iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: block;
+  border-radius: 8px;
+  border: none;
+}
+
+/* Mobile : on le remet dans le flux pour pas gâcher l'écran */
+@media (max-width: 1000px) {
+  .power-audio-fixed {
+    position: static;
+    width: 100%;
+    margin: 10px auto 0;
+  }
+}
