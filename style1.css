@@ -1349,3 +1349,325 @@ body {
   letter-spacing: 0.05em;
   text-align: left;
 }
+
+/* ───────── FUN FACTS ───────── */
+
+.content.funfacts {
+  text-align: justify;
+}
+
+.funfacts-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 12px;
+}
+
+.funfact-card {
+  background: rgba(0, 0, 0, 0.45);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.9);
+  padding: 14px 16px 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Petite ligne lumineuse en haut, style dossier Genesis */
+.funfact-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 12px;
+  right: 12px;
+  height: 2px;
+  background: linear-gradient(to right, #b61515, #f1d16b);
+  opacity: 0.7;
+}
+
+/* Label “technique” en haut de chaque bloc */
+.funfact-label {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #f1d16b;
+  opacity: 0.85;
+  margin-bottom: 8px;
+}
+
+/* Texte du fun fact */
+.funfact-card p {
+  font-size: 13px;
+  line-height: 1.7;
+  color: #d6d6d6;
+}
+
+/* Hover léger pour le côté “fichier consulté” */
+.funfact-card:hover {
+  background: rgba(0, 0, 0, 0.6);
+  transform: translateY(-1px);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+/* ───────── ACCUEIL – LAYOUT GÉNÉRAL ───────── */
+
+.content.home {
+  overflow: visible;
+}
+
+/* HERO PRINCIPAL */
+
+.home-hero {
+  display: flex;
+  gap: 24px;
+  margin-top: 10px;
+  align-items: flex-start;
+}
+
+.home-hero-main {
+  flex: 2;
+}
+
+.home-tag {
+  display: inline-block;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(241, 209, 107, 0.8);
+  background: rgba(0, 0, 0, 0.7);
+  color: #f1d16b;
+  margin-bottom: 12px;
+}
+
+.home-intro {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #d6d6d6;
+  margin-bottom: 14px;
+  text-align: justify;
+}
+
+.home-quote {
+  font-size: 15px;
+  font-style: italic;
+  line-height: 1.8;
+  color: #f5e7c4;
+  padding-left: 12px;
+  border-left: 2px solid rgba(182, 21, 21, 0.7);
+  margin-bottom: 16px;
+}
+
+/* Métadonnées sous la citation */
+
+.home-meta {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.home-meta-item {
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+.home-meta-label {
+  color: rgba(241, 209, 107, 0.9);
+  margin-right: 6px;
+}
+
+.home-meta-value {
+  color: #e5e5e5;
+}
+
+/* Portrait sur la droite */
+
+.home-hero-aside {
+  flex: 0 0 260px;
+}
+
+.home-photo {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: radial-gradient(circle at top, rgba(255, 255, 255, 0.05), transparent 60%);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.9);
+  padding: 6px;
+}
+
+.home-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.home-photo figcaption {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 6px 8px 4px;
+  color: rgba(230, 230, 230, 0.9);
+  text-align: center;
+  opacity: 0.85;
+}
+
+/* ───────── MINI DOSSIER ───────── */
+
+.home-dossier {
+  margin-top: 26px;
+  padding: 16px 18px 18px;
+  border-radius: 12px;
+  background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.02), transparent 55%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.9);
+}
+
+.home-dossier h2 {
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  margin-bottom: 10px;
+  color: #f1d16b;
+}
+
+.home-dossier-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+.home-dossier-item {
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.home-dossier-label {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 10px;
+  color: rgba(241, 209, 107, 0.9);
+  margin-bottom: 2px;
+}
+
+.home-dossier-value {
+  color: #e5e5e5;
+}
+
+/* ───────── GRILLE DE CARTES (NAVIGATION) ───────── */
+
+.home-sections {
+  margin-top: 26px;
+}
+
+.home-sections h2 {
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  margin-bottom: 14px;
+  color: #f1d16b;
+}
+
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 16px;
+}
+
+.home-card {
+  display: block;
+  text-decoration: none;
+  background: rgba(0, 0, 0, 0.45);
+  border-radius: 12px;
+  padding: 14px 14px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.9);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.home-card h3 {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  margin-bottom: 6px;
+  color: #ffffff;
+}
+
+.home-card p {
+  font-size: 13px;
+  line-height: 1.7;
+  color: #d6d6d6;
+  text-align: start;
+}
+
+.home-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 1);
+  border-color: rgba(241, 209, 107, 0.6);
+  background: radial-gradient(circle at top, rgba(241, 209, 107, 0.1), rgba(0, 0, 0, 0.85));
+}
+
+/* Carte accentuée pour Interrogatoire */
+
+.home-card-accent {
+  border-color: rgba(182, 21, 21, 0.75);
+  box-shadow: 0 0 22px rgba(182, 21, 21, 0.35);
+}
+
+.home-card-accent:hover {
+  border-color: rgba(182, 21, 21, 0.95);
+  box-shadow: 0 0 28px rgba(182, 21, 21, 0.55);
+}
+
+/* ───────── EASTER EGG ───────── */
+
+.home-easter-egg {
+  margin-top: 26px;
+  font-size: 12px;
+  text-align: center;
+  font-style: italic;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.2;
+  transition: opacity 0.2s ease;
+}
+
+.home-easter-egg:hover {
+  opacity: 0.6;
+}
+
+/* ───────── RESPONSIVE ACCUEIL ───────── */
+
+@media (max-width: 900px) {
+  .home-hero {
+    flex-direction: column;
+  }
+
+  .home-hero-aside {
+    flex: 1 1 auto;
+  }
+
+  .home-photo {
+    max-width: 260px;
+    margin: 10px auto 0;
+  }
+
+  .home-dossier {
+    padding: 14px 12px 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .home-grid {
+    grid-template-columns: 1fr;
+  }
+}
