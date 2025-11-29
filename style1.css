@@ -1860,7 +1860,7 @@ body {
   top: 110px;      /* ajuste si tu veux plus haut / plus bas */
   left: 20px;      /* distance depuis le bord gauche de l'écran */
   width: 400px;    /* largeur du lecteur */
-  z-index: 20;
+  z-index: 0;
 }
 
 
