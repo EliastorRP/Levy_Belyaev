@@ -1889,3 +1889,174 @@ body {
     margin: 10px auto 0;
   }
 }
+
+/* ───────── POUVOIRS – NOUVELLE MISE EN PAGE ───────── */
+
+.content.pouvoir {
+  overflow: visible;
+}
+
+/* Petit header propre pour le bloc principal */
+.power-header {
+  margin-bottom: 14px;
+}
+
+.power-tag {
+  display: inline-block;
+  padding: 3px 10px;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  border: 1px solid rgba(241, 209, 107, 0.85);
+  color: #f1d16b;
+  background: rgba(0, 0, 0, 0.6);
+  margin-bottom: 8px;
+}
+
+.power-header h1 {
+  margin-top: 2px;
+}
+
+.power-subtitle {
+  font-size: 13px;
+  opacity: 0.85;
+  margin-top: 6px;
+}
+
+/* Corps principal du pouvoir */
+.power-body p + p {
+  margin-top: 10px;
+}
+
+/* Grille "supports / outils" */
+.power-creation-grid {
+  display: flex;
+  gap: 18px;
+  margin: 14px 0 10px;
+  flex-wrap: wrap;
+}
+
+.power-creation-item {
+  flex: 1 1 220px;
+  background: rgba(0, 0, 0, 0.45);
+  border-radius: 10px;
+  padding: 10px 12px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.power-creation-item h2 {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #f1d16b;
+  margin: 0 0 6px;
+}
+
+.power-creation-item ul {
+  margin: 0;
+  padding-left: 16px;
+}
+
+.power-creation-item li {
+  font-size: 13px;
+}
+
+/* Carte capteurs sensoriels */
+.power-sense-card {
+  margin-top: 14px;
+  padding: 12px 14px 14px;
+  border-radius: 12px;
+  background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.03), transparent 60%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.85);
+}
+
+.power-sense-card h2 {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  margin: 0 0 8px;
+  color: #f1d16b;
+}
+
+.power-sense-card ul {
+  margin: 6px 0 8px 18px;
+}
+
+/* Sections limitations */
+.power-section {
+  margin-top: 16px;
+  padding: 12px 14px 14px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.power-section h2 {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  margin: 0 0 8px;
+  color: #f1d16b;
+}
+
+.power-section p + p {
+  margin-top: 8px;
+}
+
+.power-section ul {
+  margin: 6px 0 0 18px;
+}
+
+.power-fatigue-list li {
+  font-size: 13px;
+}
+
+/* Section spécifique humain (petit accent rouge) */
+.human-section {
+  border-color: rgba(182, 21, 21, 0.7);
+  box-shadow: 0 0 20px rgba(182, 21, 21, 0.35);
+}
+
+/* LECTEUR FIXE EN BORD D'ÉCRAN (DÉJÀ EN PLACE MAIS ON SÉCURISE) */
+.power-audio-fixed {
+  position: fixed;
+  top: 110px;              /* ajuste si ça passe sous ta navbar */
+  left: 20px;              /* distance au bord gauche */
+  width: 320px;            /* taille du lecteur */
+  z-index: 100;
+}
+
+.power-audio-fixed .audio-card {
+  background: rgba(0, 0, 0, 0.75);
+  border-radius: 12px;
+  padding: 10px 10px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.9);
+}
+
+.power-audio-fixed .audio-label {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #f1d16b;
+  margin-bottom: 6px;
+}
+
+.power-audio-fixed iframe {
+  width: 100%;
+  aspect-ratio: 16/9;
+  display: block;
+  border-radius: 8px;
+  border: none;
+}
+
+/* Sur mobile : on évite que ça bouffe l'écran */
+@media (max-width: 900px) {
+  .power-audio-fixed {
+    position: static;
+    width: 100%;
+    margin: 0 auto 16px;
+  }
+}
