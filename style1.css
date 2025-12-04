@@ -2060,3 +2060,14 @@ body {
     margin: 0 auto 16px;
   }
 }
+
+/* Accent pour la version 60% */
+.power-tag-60 {
+  border-color: rgba(182, 21, 21, 0.85);
+  color: #ff4a4a;
+}
+
+.power-section-60 {
+  border-color: rgba(182, 21, 21, 0.65);
+  box-shadow: 0 0 18px rgba(182, 21, 21, 0.3);
+}
